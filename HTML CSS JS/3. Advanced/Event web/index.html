@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Conference Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="event-styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">TechConf 2024</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+  data-bs-target="#navbarNav" aria-controls="navbarNav"
+  aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+              <a class="nav-link" href="#details">Details</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#schedule">Schedule</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#speakers">Speakers</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#register">Register</a>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Details Section -->
+  <section id="details" class="py-5">
+      <div class="container">
+          <h2 class="text-center mb-3">Event Details</h2>
+          <p>Join us for TechConf 2024, a premier technology conference that brings together industry leaders, innovators, and tech enthusiasts from around the world. This year's conference will be held at the iconic TechCenter in Silicon Valley, California.</p>
+          <ul>
+              <li><strong>Date:</strong> November 12-14, 2024</li>
+              <li><strong>Location:</strong> TechCenter, 1234 Innovation Drive, Silicon Valley, CA</li>
+              <li><strong>Theme:</strong> The Future of Technology - Innovations and Disruptions</li>
+          </ul>
+          <p>Don't miss this opportunity to network with professionals, learn from expert speakers, and explore the latest trends in technology.</p>
+      </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="py-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-3">Event Schedule</h2>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Time</th>
+                      <th>Session</th>
+                      <th>Speaker</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>9:00 AM - 10:00 AM</td>
+                      <td>Opening Keynote: The Future of AI</td>
+                      <td>Dr. Emily Johnson</td>
+                  </tr>
+                  <tr>
+                      <td>10:15 AM - 11:15 AM</td>
+                      <td>Panel Discussion: Cybersecurity in 2024</td>
+                      <td>John Smith, Sarah Lee, and others</td>
+                  </tr>
+                  <tr>
+                      <td>11:30 AM - 12:30 PM</td>
+                      <td>Workshop: Building with Blockchain</td>
+                      <td>Alice Cooper</td>
+                  </tr>
+                  <tr>
+                      <td>12:30 PM - 1:30 PM</td>
+                      <td>Lunch Break</td>
+                      <td>-</td>
+                  </tr>
+                  <tr>
+                      <td>1:30 PM - 3:00 PM</td>
+                      <td>Breakout Sessions</td>
+                      <td>Various Speakers</td>
+                  </tr>
+                  <tr>
+                      <td>3:15 PM - 4:15 PM</td>
+                      <td>Closing Keynote: Innovations in Cloud Computing</td>
+                      <td>Michael Brown</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </section>
+
+  <!-- Speakers Section -->
+  <section id="speakers" class="py-5">
+      <div class="container">
+          <h2 class="text-center mb-3">Speakers</h2>
+          <div class="row">
+              <div class="col-md-4 text-center">
+                  <img src="speaker1.jpg" alt="Dr. Emily Johnson" class="img-fluid rounded-circle mb-3">
+                  <h4>Dr. Emily Johnson</h4>
+                  <p>AI Researcher, MIT</p>
+              </div>
+              <div class="col-md-4 text-center">
+                  <img src="speaker2.jpg" alt="John Smith" class="img-fluid rounded-circle mb-3">
+                  <h4>John Smith</h4>
+                  <p>Cybersecurity Expert, SecureTech</p>
+              </div>
+              <div class="col-md-4 text-center">
+                  <img src="speaker3.jpg" alt="Alice Cooper" class="img-fluid rounded-circle mb-3">
+                  <h4>Alice Cooper</h4>
+                  <p>Blockchain Developer, BlockInnovate</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Registration Section -->
+  <section id="register" class="py-5 bg-light">
+      <div class="container">
+          <h2 class="text-center mb-3">Registration</h2>
+          <form id="registration-form">
+              <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" class="form-control" id="fullName"
+                  name="fullName" placeholder="Enter full name" required>
+              </div>
+              <div class="form-group">
+                  <label for="emailAddress">Email address</label>
+                  <input type="email" class="form-control" id="emailAddress"
+                  name="emailAddress" placeholder="Enter email" required>
+              </div>
+              <div class="form-group">
+                  <label for="ticketType">Ticket Type</label>
+                  <select class="form-control" id="ticketType" name="ticketType" required>
+                      <option value="">Select ticket type</option>
+                      <option value="general">General Admission</option>
+                      <option value="vip">VIP</option>
+                      <option value="student">Student</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit Registration</button>
+          </form>
+      </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="location" class="py-5">
+      <div class="container">
+          <h2 class="text-center mb-3">Location</h2>
+          <div id="map" style="height: 400px; width: 100%;"></div>
+      </div>
+  </section>
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+  <p>(c) 2024 TechConf. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="event-scripts.js"></script>
+<script>
+     // Initialize the map using Leaflet.js
+      function initMap() {
+        // The location of the event
+        var eventLocation = [37.4429964, -122.1545229]; // Latitude and Longitude
+
+        // Create the map and set the initial view
+        var map = L.map('map').setView(eventLocation, 15);
+
+        // Load and display the OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker at the event location
+        L.marker(eventLocation).addTo(map)
+          .bindPopup('TechConf 2024 Location')
+          .openPopup();
+      }
+
+      // Call initMap when the page loads
+      window.onload = initMap;
+</script>
+</body>
+</html>

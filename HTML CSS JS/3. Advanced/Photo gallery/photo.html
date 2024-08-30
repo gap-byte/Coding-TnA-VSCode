@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Photo Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+</head>
+  
+<body>
+  <header>
+    <h1>My Photo Gallery</h1>
+    <p>Explore my collection of high-quality images ranging from landscapes to portraits.</p>
+  </header>
+  
+  <main> 
+    <nav>
+      <button class="filter" onclick="filterGallery('all')">All</button>
+      <button class="filter" onclick="filterGallery('landscapes')">Landscapes</button>
+      <button class="filter" onclick="filterGallery('portraits')">Portraits</button>
+      <!-- Add more filters as needed -->
+    </nav>
+    
+    <section id="gallery"> <!-- Gallery content will go here -->
+      <div class="photo landscapes">
+          <img src="photos/pexels1.jpg" alt="Description of image 1">
+          <p class="caption">Street with woods</p>
+      </div>
+
+      <div class="photo portraits">
+          <img src="photos/pexels2.jpg" alt="Description of image 2">
+          <p class="caption">A railway on the mountain</p>
+      </div>
+
+      <div class="photo portraits">
+          <img src="photos/pexels3.jpg" alt="Description of image 2">
+          <p class="caption">Rock cliff and sea</p>
+      </div>
+
+      <div class="photo landscapes">
+          <img src="photos/pexels4.jpg" alt="Description of image 2">
+          <p class="caption">Girl with a lake background</p>
+      </div>
+
+      <div class="photo landscapes">
+          <img src="photos/pexels5.jpg" alt="Description of image 2">
+          <p class="caption">On my table</p>
+      </div>
+      <!-- Repeat for other images -->
+    </section>
+
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+  
+  </main>
+  
+  <footer>
+  <!-- Footer content, perhaps some contact info or social links -->
+  </footer>
+</body>
+  
+</html>

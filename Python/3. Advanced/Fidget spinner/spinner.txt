@@ -1,0 +1,74 @@
+Import the Turtle Module:
+
+Python
+from turtle import *
+Use code with caution.
+
+This line imports the turtle module, which provides functions for creating and controlling turtle graphics.
+Create a Dictionary to Store State:
+
+Python
+state = {'turn': 0}
+Use code with caution.
+
+This line creates a dictionary called state to store the current state of the animation. The 'turn' key holds the current rotation angle.
+Define the spinner Function:
+
+Python
+def spinner():
+    clear()
+    angle = state['turn']/10
+    right(angle)
+    forward(100)
+    dot(120, 'red')
+    back(100)
+    # ... (rest of the code)
+Use code with caution.
+
+This function draws a spinning three-colored wheel. It clears the screen, turns right by the specified angle, draws a red dot, and then repeats the process for green and blue.
+Define the animate Function:
+
+Python
+def animate():
+    if state['turn']>0:
+        state['turn']-=1
+
+    spinner()
+    ontimer(animate, 20)
+Use code with caution.
+
+This function controls the animation. It decrements the 'turn' value if it's greater than 0, calls the spinner function to draw the wheel, and then schedules itself to be called again after 20 milliseconds using ontimer.
+Define the flick Function:
+
+Python
+def flick():
+    state['turn']+=10
+Use code with caution.
+
+This function increases the 'turn' value by 10, causing the wheel to spin faster.
+Set Up the Turtle Graphics Window:
+
+Python
+setup(420, 420, 370, 0)
+hideturtle()
+tracer(False)
+width(20)
+Use code with caution.
+
+These lines set the size and position of the turtle window, hide the turtle cursor, disable automatic screen updates, and set the pen width.
+Bind the flick Function to the Spacebar:
+
+Python
+onkey(flick, 'space')
+listen()
+Use code with caution.
+
+These lines bind the flick function to the spacebar key and start listening for keyboard events.
+Start the Animation:
+
+Python
+animate()
+done()
+Use code with caution.
+
+These lines call the animate function to start the animation and keep the turtle window open until it's closed.

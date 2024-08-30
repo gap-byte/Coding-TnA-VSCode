@@ -1,0 +1,95 @@
+/* Basic reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Navigation styles */
+  .navbar {
+    margin-bottom: 30px;
+  }
+  
+  /* Section Styles */
+  section {
+    padding: 60px 0;
+  }
+  
+  /* Event details styles */
+  #details .container {
+    text-align: center;
+  }
+  
+  /* Schedule styles */
+  #schedule .container {
+    text-align: center;
+  }
+  
+  /* Speakers styles */
+  #speakers .container {
+    text-align: center;
+  }
+  
+  /* Registration Form Styles */
+  #register .container {
+    text-align: center;
+    max-width: 600px; /* Makes the form not too wide on larger screens */
+    margin: auto;
+  }
+  
+  #registration-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  #registration-form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  #registration-form label {
+    text-align: left;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  
+  #registration-form .form-control {
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #registration-form .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #registration-form .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  /* Location Map Styles */
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }

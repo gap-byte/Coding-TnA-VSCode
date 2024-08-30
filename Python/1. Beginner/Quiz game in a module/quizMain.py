@@ -1,0 +1,1 @@
+from quizModule import myQuiz
