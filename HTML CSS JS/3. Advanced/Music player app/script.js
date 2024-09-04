@@ -2,9 +2,9 @@
 var audio = document.getElementById('audio-element');
 var playlistItems = document.querySelectorAll('#playlist li');
 var tracks = [
-  'path-to-your-first-song.mp3',
-  'path-to-your-second-song.mp3',
-  'path-to-your-third-song.mp3',
+  'HTML CSS JS\3. Advanced\Music player app\Bruno Mars - Locked Out Of Heaven.mp3',
+  'HTML CSS JS\3. Advanced\Music player app\Linkin Park - In The End.mp3',
+  'HTML CSS JS\3. Advanced\Music player app\Maroon 5 - Girls Like You.mp3',
   // ...add more tracks here
 ];
 

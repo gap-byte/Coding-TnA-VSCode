@@ -7,28 +7,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Music Player Interface</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="music-player" class="player">
   <audio id="audio-element">
-      <source src="path-to-your-first-song.mp3" type="audio/mpeg">
+      <source src="HTML CSS JS\3. Advanced\Music player app\Bruno Mars - Locked Out Of Heaven.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
   </audio>
+
   <div class="controls">
       <button id="play-pause" onclick="togglePlayPause()">Play</button>
       <button id="prev" onclick="playPreviousTrack()">Prev</button>
       <button id="next" onclick="playNextTrack()">Next</button>
   </div>
+
+
   <div class="progress-bar">
       <div id="progress" class="progress"></div>
   </div>
+
+  
   <div class="playlist">
       <ul id="playlist">
-          <li onclick="changeTrack('path-to-your-first-song.mp3', this)">First Song Title</li>
-          <li onclick="changeTrack('path-to-your-second-song.mp3', this)">Second Song Title</li>
-          <li onclick="changeTrack('path-to-your-third-song.mp3', this)">Third Song Title</li>
+          <li onclick="changeTrack('HTML CSS JS\3. Advanced\Music player app\Bruno Mars - Locked Out Of Heaven.mp3', this)">Bruno Mars - Locked out of heaven</li>
+          <li onclick="changeTrack('HTML CSS JS\3. Advanced\Music player app\Linkin Park - In The End.mp3', this)">Linkin park - In the end</li>
+          <li onclick="changeTrack('HTML CSS JS\3. Advanced\Music player app\Maroon 5 - Girls Like You.mp3', this)">Maroon 5 - Girls like you</li>
           <!-- More songs can be added here -->
         </ul>
     </div>
