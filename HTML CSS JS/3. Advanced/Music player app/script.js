@@ -6,8 +6,7 @@ var tracks = [
   'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3',
   'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Linkin%20Park%20-%20In%20The%20End.mp3',
   'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Maroon%205%20-%20Girls%20Like%20You.mp3',
-];
-n                                                  jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
+];                                          
 
 function togglePlayPause() {
   if (audio.paused) {
