@@ -1,12 +1,13 @@
 // JavaScript for Custom Music Player Controls
 var audio = document.getElementById('audio-element');
 var playlistItems = document.querySelectorAll('#playlist li');
+var currentTrackIndex = 0; //initialize current track index
 var tracks = [
-  'HTML CSS JS\3. Advanced\Music player app\Bruno Mars - Locked Out Of Heaven.mp3',
-  'HTML CSS JS\3. Advanced\Music player app\Linkin Park - In The End.mp3',
-  'HTML CSS JS\3. Advanced\Music player app\Maroon 5 - Girls Like You.mp3',
-  // ...add more tracks here
+  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3',
+  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Linkin%20Park%20-%20In%20The%20End.mp3',
+  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Maroon%205%20-%20Girls%20Like%20You.mp3',
 ];
+n                                                  jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
 
 function togglePlayPause() {
   if (audio.paused) {
@@ -51,8 +52,15 @@ audio.addEventListener('ended', playNextTrack);
 
 audio.addEventListener('timeupdate', function() {
   var progressBar = document.getElementById('progress');
-  var percentage = Math.floor((100 / audio.duration) * audio.currentTime);
-  progressBar.style.width = percentage + '%';
+  if (!isNaN(audio.duration)) {
+    var percentage = Math.floor((100 / audio.duration) * audio.currentTime);
+    progressBar.style.width = percentage + '%';
+  }
+});
+
+// Error handling for failed audio loading
+audio.addEventListener('error', function() {
+  alert('Failed to load the audio file.');
 });
 
 // Adding click event listeners to playlist items
@@ -62,3 +70,8 @@ playlistItems.forEach((item, index) => {
       changeTrack(tracks[currentTrackIndex], this);
   });
 });
+
+// Load the first track on page load
+window.onload = function() {
+  changeTrack(tracks[0], playlistItems[0]);
+};
