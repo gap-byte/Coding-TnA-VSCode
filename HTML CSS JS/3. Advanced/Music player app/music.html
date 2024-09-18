@@ -1,45 +1,37 @@
-<!--The goal here is to create a functional and stylish interface for our music player.--!> 
-<!--We’ll also include a playlist to list songs and controls for play, pause, next, and previous.--!>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Music Player Interface</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Interface</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-HTML CSS JS\3. Advanced\Music player app\Bruno Mars - Locked Out Of Heaven.mp3
+    <div id="music-player" class="player">
+        <audio id="audio-element">
+            <source src="HTML CSS JS/3. Advanced/Music player app/Bruno Mars - Locked Out Of Heaven.mp3" type="audio/mpeg">
+        </audio>
 
-<div id="music-player" class="player">
-  <audio id="audio-element">
-      <source src="HTML CSS JS/3. Advanced/Music player app/Bruno Mars - Locked Out Of Heaven.mp3" type="audio/mpeg">
-  </audio>
+        <div class="controls">
+            <button id="play-pause" onclick="togglePlayPause()">Play</button>
+            <button id="prev" onclick="playPreviousTrack()">Prev</button>
+            <button id="next" onclick="playNextTrack()">Next</button>
+        </div>
 
-  <div class="controls">
-      <button id="play-pause" onclick="togglePlayPause()">Play</button>
-      <button id="prev" onclick="playPreviousTrack()">Prev</button>
-      <button id="next" onclick="playNextTrack()">Next</button>
-  </div>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
 
-
-  <div class="progress-bar">
-      <div id="progress" class="progress"></div>
-  </div>
-
-  
-  <div class="playlist">
-      <ul id="playlist">
-          <li onclick='changeTrack('HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3', this)">Bruno Mars - Locked out of heaven</li>
-          <li onclick='changeTrack('HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Linkin%20Park%20-%20In%20The%20End.mp3', this)">Linkin Park - In The End</li>
-          <li onclick='changeTrack('HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Maroon%205%20-%20Girls%20Like%20You.mp3', this)">Maroon 5 - Girls like you</li>
-          <!-- More songs can be added here -->
-        </ul>
+        <div class="playlist">
+            <ul id="playlist">
+                <li onclick='changeTrack("HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3", this)'>Bruno Mars - Locked out of heaven</li>
+                <li onclick='changeTrack("HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Linkin%20Park%20-%20In%20The%20End.mp3", this)'>Linkin Park - In The End</li>
+                <li onclick='changeTrack("HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Maroon%205%20-%20Girls%20Like%20You.mp3", this)'>Maroon 5 - Girls like you</li>
+                </ul>
+        </div>
     </div>
-  </div>
-  
-  <script src="script.js"></script>
-  </body>
-  </html>
+
+    <script src="script.js"></script>
+</body>
+</html>

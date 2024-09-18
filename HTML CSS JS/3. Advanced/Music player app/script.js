@@ -1,76 +1,78 @@
-// JavaScript for Custom Music Player Controls
-var audio = document.getElementById('audio-element');
-var playlistItems = document.querySelectorAll('#playlist li');
-var currentTrackIndex = 0; //initialize current track index
-var tracks = [
-  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3',
-  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Linkin%20Park%20-%20In%20The%20End.mp3',
-  'HTML%20CSS%20JS/3.%20Advanced/Music%20player%20app/Maroon%205%20-%20Girls%20Like%20You.mp3',
-];                                          
+const audioElement = document.getElementById('audio-element');
+const playPauseBtn = document.getElementById('play-pause');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const progress = document.getElementById('progress');
+const playlist = document.getElementById('playlist');
+
+let isPlaying = false;
+let currentTrackIndex = 0;
+
+const tracks = [
+    "HTML CSS JS/3. Advanced/Music player app/Bruno Mars - Locked Out Of Heaven.mp3",
+    "HTML CSS JS/3. Advanced/Music player app/Linkin Park - In The End.mp3",
+    "HTML CSS JS/3. Advanced/Music player app/Maroon 5 - Girls Like You.mp3"
+];
 
 function togglePlayPause() {
-  if (audio.paused) {
-      audio.play();
-      updatePlayPauseButton(true);
-  } else {
-      audio.pause();
-      updatePlayPauseButton(false);
-  }
-}
-
-function updatePlayPauseButton(isPlaying) {
-  var playPauseButton = document.getElementById('play-pause');
-  playPauseButton.innerText = isPlaying ? 'Pause' : 'Play';
-}
-
-function playNextTrack() {
-  currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-  changeTrack(tracks[currentTrackIndex], playlistItems[currentTrackIndex]);
+    if (isPlaying) {
+        audioElement.pause();
+        playPauseBtn.textContent = 'Play';
+    } else {
+        audioElement.play();
+        playPauseBtn.textContent = 'Pause';
+    }
+    isPlaying = !isPlaying;
 }
 
 function playPreviousTrack() {
-  currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-  changeTrack(tracks[currentTrackIndex], playlistItems[currentTrackIndex]);
+    currentTrackIndex--;
+    if (currentTrackIndex < 0) {
+        currentTrackIndex = tracks.length - 1;
+    }
+    loadTrack(currentTrackIndex);
 }
 
-function changeTrack(source, element) {
-  audio.src = source;
-  audio.play();
-  updatePlayPauseButton(true);
-  updatePlaylistHighlight(element);
+function playNextTrack() {
+    currentTrackIndex++;
+    if (currentTrackIndex >= tracks.length) {
+        currentTrackIndex = 0;
+    }
+    loadTrack(currentTrackIndex);
 }
 
-function updatePlaylistHighlight(element) {
-  if (element) {
-      playlistItems.forEach(li => li.classList.remove('playing'));
-      element.classList.add('playing');
-  }
+function loadTrack(index) {
+    audioElement.src = tracks[index];
+    audioElement.play();
+    isPlaying = true;
+    playPauseBtn.textContent = 'Pause';
+    updatePlaylistHighlight(index);
 }
 
-audio.addEventListener('ended', playNextTrack);
+function changeTrack(src, element) {
+    const index = tracks.indexOf(src);
+    if (index !== -1) {
+        loadTrack(index);
+    }
+}
 
-audio.addEventListener('timeupdate', function() {
-  var progressBar = document.getElementById('progress');
-  if (!isNaN(audio.duration)) {
-    var percentage = Math.floor((100 / audio.duration) * audio.currentTime);
-    progressBar.style.width = percentage + '%';
-  }
+function updatePlaylistHighlight(index) {
+    const playlistItems = playlist.getElementsByTagName('li');
+    for (let i = 0; i < playlistItems.length; i++) {
+        playlistItems[i].classList.remove('active');
+    }
+    playlistItems[index].classList.add('active');
+}
+
+audioElement.addEventListener('timeupdate', () => {
+    const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
+    progress.style.width = progressPercent + '%';
 });
 
-// Error handling for failed audio loading
-audio.addEventListener('error', function() {
-  alert('Failed to load the audio file.');
+audioElement.addEventListener('ended', () => {
+    playNextTrack();
 });
 
-// Adding click event listeners to playlist items
-playlistItems.forEach((item, index) => {
-  item.addEventListener('click', function() {
-      currentTrackIndex = index;
-      changeTrack(tracks[currentTrackIndex], this);
-  });
-});
-
-// Load the first track on page load
-window.onload = function() {
-  changeTrack(tracks[0], playlistItems[0]);
-};
+playPauseBtn.addEventListener('click', togglePlayPause);
+prevBtn.addEventListener('click', playPreviousTrack);
+nextBtn.addEventListener('click', playNextTrack);
