@@ -1,25 +1,12 @@
 import random
 while True:
-    print('''1. roll the dice  2. exit''')
-    user = int(input("what number do you want?"))
+    print('type 1 to roll the dice and type 2 to exit')
+    user = int(input("LET'S ROLL  "))
     if user == 1:
         number = random.randint(1,6)
         print(number)
-    elif user==2:
-        number = random.randint(1,6)
-        print(number)
-    elif user==3:
-        number = random.randint(1,6)
-        print(number)
-    elif user==4:
-        number = random.randint(1,6)
-        print(number)
-    elif user==5:
-        number = random.randint(1,6)
-        print(number)
-    elif user==6:
-        number = random.randint(1,6)
-        print(number)
+    elif user == 2:
+        break
     else:
-        print('the dice is only 1 to 6')
+        print('type 1 to roll and type 2 to exit')
         break
