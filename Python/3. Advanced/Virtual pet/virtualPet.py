@@ -34,6 +34,7 @@ def toggle_tongue():
         c.itemconfigure(tongue_tip, state=HIDDEN)
         c.itemconfigure(tongue_main, state=HIDDEN)
         c.tongue_out = False
+        
 def cheeky(event):
     toggle_tongue()
     toggle_pupils()

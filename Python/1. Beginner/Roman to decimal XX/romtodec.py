@@ -6,19 +6,25 @@ tallies = {
     'C': 100,
     'D': 500,
     'M': 1000,
-    # specify more numerals if you wish
 }
 
-def RomanNumeralToDecimal(romanNumeral):
+def RomanNumeralToDecimal(roman_numeral):
     sum = 0
-    for i in range(len(romanNumeral) - 1):
-        left = romanNumeral[i]
-        right = romanNumeral[i + 1]
-        if tallies[left] < tallies[right]:
-            sum -= tallies[left]
+    prev_value = 0
+
+    for char in roman_numeral:
+        curr_value = tallies[char]
+
+        if curr_value > prev_value:
+            sum += curr_value - 2 * prev_value
         else:
-            sum += tallies[left]
-    sum += tallies[romanNumeral[-1]]
+            sum += curr_value
+
+        prev_value = curr_value
+
     return sum
 
-RomanNumeralToDecimal("V")
+# Example usage:
+roman_numeral = "V"
+decimal_value = RomanNumeralToDecimal(roman_numeral)
+print(decimal_value)  # Output: 9

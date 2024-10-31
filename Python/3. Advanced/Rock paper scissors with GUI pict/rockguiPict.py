@@ -1,56 +1,59 @@
-import tkinter as t
-import random as r
+import tkinter as tk
+import random as random  # Use random for clarity
 
 selection = ["Rock", "Scissor", "Paper"]
 
-def computerChoice():
-    return r.choice(selection)
+def computer_choice():
+  """Selects a random choice from the selection list."""
+  return random.choice(selection)
 
-def conclusionMaker(pc, user):
-    if pc == user:
-        return "tie"
-    elif (pc == "Rock" and user == "Scissor") or (pc == "Scissor" and user == "Paper") or (pc == "Paper" and user == "Rock"):
-        return "you lose"
-    else:
-        return "you win"
+def conclusion_maker(pc, user):
+  """Compares user and computer choices and returns the result."""
+  if pc == user:
+    return "Tie"
+  elif (pc == "Rock" and user == "Scissor") or (pc == "Scissor" and user == "Paper") or (pc == "Paper" and user == "Rock"):
+    return "You Lose"
+  else:
+    return "You Win"
 
-frame = t.Tk()
-frame.title("Rock Scissor Paper")
+# Create the main window
+root = tk.Tk()
+root.title("Rock Scissor Paper")
 
-welcomeMSG = t.Label(frame, text="Welcome to Rock Scissor Papers!")
-welcomeMSG.pack(pady=10)
+# Welcome message
+welcome_msg = tk.Label(root, text="Welcome to Rock Scissor Paper!")
+welcome_msg.pack(pady=10)
 
-# Load the images
-rock_img = t.PhotoImage(file="Python\3. Advanced\Rock paper scissors with GUI pict\fist.png")
-scissor_img = t.PhotoImage(file="Python\3. Advanced\Rock paper scissors with GUI pict\scissors.png")
-paper_img = t.PhotoImage(file="Python\3. Advanced\Rock paper scissors with GUI pict\hand-paper.png")
+# Load images (assuming images are in the same directory as the script)
+rock_img = tk.PhotoImage(file="fist.png")  # Replace with your image path
+scissor_img = tk.PhotoImage(file="scissors.png")  # Replace with your image path
+paper_img = tk.PhotoImage(file="hand-paper.png")  # Replace with your image path
 
-def btnPressed(user):
-    pc_choice = computerChoice()
-    computerOutput.config(text=f"Computer Chose: {pc_choice}", fg="blue")
+def button_pressed(user_choice):
+  """Handles button clicks, updates computer choice and result labels."""
+  pc_choice = computer_choice()
+  computer_output.config(text=f"Computer Chose: {pc_choice}", fg="blue")
 
-    result = conclusionMaker(pc_choice, user)
-    if result == "you win":
-        conclusion.config(text=f"Result: {result}", fg="green")
-    elif result == "you lose":
-        conclusion.config(text=f"Result: {result}", fg="red")
-    else:
-        conclusion.config(text=f"Result: {result}", fg="orange")
+  result = conclusion_maker(pc_choice, user_choice)
+  result_color = "green" if result == "You Win" else "red" if result == "You Lose" else "orange"
+  conclusion.config(text=f"Result: {result}", fg=result_color)
 
-# Set images on buttons
-Rockbtn = t.Button(frame, image=rock_img, command=lambda: btnPressed("Rock"))
-Rockbtn.pack(pady=7)
+# Button creation with images and commands
+rock_btn = tk.Button(root, image=rock_img, command=lambda: button_pressed("Rock"))
+rock_btn.pack(pady=7)
 
-Scissorbtn = t.Button(frame, image=scissor_img, command=lambda: btnPressed("Scissor"))
-Scissorbtn.pack(pady=7)
+scissor_btn = tk.Button(root, image=scissor_img, command=lambda: button_pressed("Scissor"))
+scissor_btn.pack(pady=7)
 
-Paperbtn = t.Button(frame, image=paper_img, command=lambda: btnPressed("Paper"))
-Paperbtn.pack(pady=7)
+paper_btn = tk.Button(root, image=paper_img, command=lambda: button_pressed("Paper"))
+paper_btn.pack(pady=7)
 
-computerOutput = t.Label(frame, text="")
-computerOutput.pack(pady=8)
+# Labels for computer choice and result
+computer_output = tk.Label(root, text="")
+computer_output.pack(pady=8)
 
-conclusion = t.Label(frame, text="")
+conclusion = tk.Label(root, text="")
 conclusion.pack(pady=5)
 
-frame.mainloop()
+# Start the main event loop
+root.mainloop()
