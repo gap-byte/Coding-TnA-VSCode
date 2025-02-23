@@ -18,8 +18,8 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Flappy Bird")
 
 bird_img = pygame.image.load("bird.png")
-background_img = pygame.image.load("background.png")
-pipe_img = pygame.image.load("pipe.png")
+background_img = pygame.image.load("base.svg")
+pipe_img = pygame.image.load("pipe.svg")
 
 bird_img = pygame.transform.scale(bird_img, (50, 50))
 background_img = pygame.transform.scale(background_img, (WIDTH, HEIGHT))
