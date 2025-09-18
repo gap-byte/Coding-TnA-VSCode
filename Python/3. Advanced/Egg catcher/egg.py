@@ -103,4 +103,3 @@ root.after(1000, move_eggs)
 root.after(1000, check_catch)
 root.mainloop()
 
-#Coded with 💙 by Mr. Unity Buddy
