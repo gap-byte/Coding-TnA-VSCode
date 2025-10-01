@@ -23,7 +23,7 @@ print("Your favorite color in lowercase:", color.lower())
 
 
 # 6. Check if a word starts with a specific letter
-word = input("Enter a word: ")
+word = input("Enter a word to be checked: ")
 print("Does your word start with 'a'?:", word.lower().startswith("a"))
 
 
