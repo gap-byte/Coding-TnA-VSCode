@@ -6,6 +6,7 @@ price_per_item = float(input("Enter the price per item (USD): "))  # float
 is_member = input("Do you have a membership card? (yes/no): ").lower() == "yes"  # boolean
 
 subtotal = quantity * price_per_item
+
 if is_member:
     discount = subtotal * 0.1  # 10% discount
 else:
