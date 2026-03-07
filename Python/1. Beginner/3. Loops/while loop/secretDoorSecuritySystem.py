@@ -21,7 +21,7 @@ while access_granted == False:
             print("WRONG PASSCODE! Alarm ringing! Try again.")
     else:
         print("Intruder detected! We don't know you.")
-        print("Hint: You are Agent Ruby!")
+        print("Hint: Report to the Security Office for clearance.")
 
 # 3. Final Summary
 print("\nWelcome back to the Secret Base. Your mission is waiting.")
