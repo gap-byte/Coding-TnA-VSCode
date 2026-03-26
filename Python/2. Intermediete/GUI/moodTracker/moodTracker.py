@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter as tk #it's a library that helps us create windows and buttons for our app
 
 # 1. Setup the Window (The "Building")
 root = tk.Tk()
