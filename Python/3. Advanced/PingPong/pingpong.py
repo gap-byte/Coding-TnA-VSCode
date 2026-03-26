@@ -16,7 +16,7 @@ BRICK_HEIGHT = 30
 
 # Create window
 root = tk.Tk()
-root.title("Brick Breaker")
+root.title("Ping Pong")
 canvas = tk.Canvas(root, width=WINDOW_WIDTH, height=WINDOW_HEIGHT, bg="black")
 canvas.pack()
 
