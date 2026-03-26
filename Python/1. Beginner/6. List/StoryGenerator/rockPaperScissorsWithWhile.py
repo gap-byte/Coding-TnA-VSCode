@@ -14,7 +14,7 @@ def play_game():
 
     # 3. The Game Loop
     while user_score < winning_score and computer_score < winning_score:
-        print(f"\nScore: You {user_score} - Computer {computer_score}")
+        print(f"\nScore: Your score: {user_score} - Computer score: {computer_score}")
         user_choice = input("Enter rock, paper, or scissors: ").lower()
         
         # Validation
