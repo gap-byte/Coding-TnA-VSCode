@@ -29,8 +29,11 @@ while mission_active == True:
     print("1. Buy Oxygen (-10 Credits, +5 Oxygen)")
     print("2. Buy Food (-10 Credits, +5 Food)")
     print("3. Do Nothing (Save Credits)")
-    
+
     choice = input("\nSelect 1, 2, or 3: ")
+    while choice not in ("1", "2", "3"):
+        print("Invalid input! Please enter only 1, 2, or 3.")
+        choice = input("Select 1, 2, or 3: ")
 
     if choice == "1":
         if credits >= 10:
