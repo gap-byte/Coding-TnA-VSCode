@@ -12,9 +12,10 @@
             "webRoot": "${workspaceFolder}",
             "runtimeExecutable": "/usr/bin/brave-browser",
             "runtimeArgs": [
-                "--remote-debugging-port=9222"
+                "--remote-debugging-port=9222",
+                "--user-data-dir=${workspaceFolder}/.vscode/brave-profile" 
             ],
-            "userDataDir": false
+            "userDataDir": false 
         }
     ]
 }
