@@ -28,7 +28,7 @@ label_title.pack(pady=10)
 
 # We connect the buttons to our functions using 'command='
 # Notice: We DON'T use () when passing the function to the button!
-btn_happy = tk.Button(root, text="Happy", width=10, command=feel_happy)
+btn_happy = tk.Button(root, text="Happy", width=10, command=feel_happy) #feel_happy()
 btn_happy.pack(pady=5)
 
 btn_sad = tk.Button(root, text="Sad", width=10, command=feel_sad)
