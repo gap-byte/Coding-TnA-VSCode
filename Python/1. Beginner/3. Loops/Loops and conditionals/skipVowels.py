@@ -1,6 +1,6 @@
 word = input("Enter a word: ")
 
-for letter in word:
-    if letter in "aeiouAEIOU":
-        continue
-    print(letter)
+for i in word:
+    if i in "a e i o u A E I O U":
+        continue #skip
+    print(i)
