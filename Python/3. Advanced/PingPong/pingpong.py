@@ -6,11 +6,15 @@ import random
 # -------------------------------
 WINDOW_WIDTH = 800
 WINDOW_HEIGHT = 600
+
 PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 15
+
 BALL_SIZE = 20
+
 BRICK_ROWS = 5
 BRICK_COLUMNS = 8
+
 BRICK_WIDTH = 80
 BRICK_HEIGHT = 30
 
