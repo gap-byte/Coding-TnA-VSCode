@@ -79,7 +79,7 @@ def move_right(event):
 
 canvas.bind("<Left>", move_left)
 canvas.bind("<Right>", move_right)
-canvas.focus_set()
+canvas.focus_set() #shifts the program's keyboard input focus directly to the canvas widget.
 
 
 # -------------------------------
