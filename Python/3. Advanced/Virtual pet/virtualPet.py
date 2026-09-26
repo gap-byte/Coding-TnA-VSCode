@@ -1,4 +1,5 @@
 from tkinter import HIDDEN, NORMAL, Tk, Canvas
+import tkinter as Tk
 
 def toggle_eyes():
     current_color = c.itemcget(eye_left, 'fill')
@@ -43,31 +44,31 @@ def cheeky(event):
     root.after(1000, toggle_pupils)
     return
 
-def show_happy(event):
-    if (20 <= event.x and event.x <= 350) and (20 <= event.y and event.y <= 350):
-        c.itemconfigure(cheek_left, state=NORMAL)
-        c.itemconfigure(cheek_right, state=NORMAL)
-        c.itemconfigure(mouth_happy, state=NORMAL)
-        c.itemconfigure(mouth_normal, state=HIDDEN)
-        c.itemconfigure(mouth_sad, state=HIDDEN)
-        c.happy_level = 10
-    return
+def update_mood():
+    is_happy = c.happy_level >= 7
+    is_sad = c.happy_level <= 3
+    c.itemconfigure(cheek_left, state=NORMAL if is_happy else HIDDEN)
+    c.itemconfigure(cheek_right, state=NORMAL if is_happy else HIDDEN)
+    c.itemconfigure(mouth_happy, state=NORMAL if is_happy else HIDDEN)
+    c.itemconfigure(mouth_normal, state=NORMAL if not is_happy and not is_sad else HIDDEN)
+    c.itemconfigure(mouth_sad, state=NORMAL if is_sad else HIDDEN)
 
-def hide_happy(event):
-    c.itemconfigure(cheek_left, state=HIDDEN)
-    c.itemconfigure(cheek_right, state=HIDDEN)
-    c.itemconfigure(mouth_happy, state=HIDDEN)
-    c.itemconfigure(mouth_normal, state=NORMAL)
-    c.itemconfigure(mouth_sad, state=HIDDEN)
-    return
+def change_happiness(amount):
+    c.happy_level = max(0, min(10, c.happy_level + amount))
+    happiness_label.config(text=f"Happiness: {c.happy_level}/10")
+    update_mood()
+
+def feed_pet():
+    change_happiness(3)
+    c.itemconfigure(tongue_tip, state=NORMAL)
+    c.itemconfigure(tongue_main, state=NORMAL)
+    root.after(700, lambda: (c.itemconfigure(tongue_tip, state=HIDDEN), c.itemconfigure(tongue_main, state=HIDDEN)))
+
+def pet_pet():
+    change_happiness(2)
 
 def sad():
-    if c.happy_level == 0:
-        c.itemconfigure(mouth_happy, state=HIDDEN)
-        c.itemconfigure(mouth_normal, state=HIDDEN)
-        c.itemconfigure(mouth_sad, state=NORMAL)
-    else:
-        c.happy_level -= 1
+    change_happiness(-1)
     root.after(5000, sad)
 
 root = Tk()
@@ -98,13 +99,19 @@ cheek_left = c.create_oval(70, 180, 120, 230, outline='pink', fill='pink', state
 cheek_right = c.create_oval(280, 180, 330, 230, outline='pink', fill='pink', state=HIDDEN)
 
 c.pack()
-c.bind('<Motion>', show_happy)
-c.bind('<Leave>', hide_happy)
 c.bind('<Double-1>', cheeky)
+
+controls = tk.Frame(root)
+controls.pack(pady=(8, 4))
+happiness_label = tk.Label(controls, text="Happiness: 10/10", font=("Arial", 14))
+happiness_label.pack(pady=(0, 6))
+tk.Button(controls, text="Feed (+3)", command=feed_pet).pack(side='left', padx=5)
+tk.Button(controls, text="Pet (+2)", command=pet_pet).pack(side='left', padx=5)
 
 c.happy_level = 10
 c.eyes_crossed = False
 c.tongue_out = False
+update_mood()
 
 root.after(1000, blink)
 root.after(5000, sad)
