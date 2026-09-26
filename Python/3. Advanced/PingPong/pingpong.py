@@ -64,6 +64,9 @@ for row in range(BRICK_ROWS):
         brick = canvas.create_rectangle(x1, y1, x2, y2, fill=colors[row % len(colors)], width=2)
         bricks.append(brick)
 
+    score = 0
+    score_text = canvas.create_text(10, 165, text="Score: ", fill="white", font=("Arial", 16), anchor="nw")
+
 # -------------------------------
 # Paddle movement functions
 # -------------------------------
@@ -86,7 +89,7 @@ canvas.focus_set() #shifts the program's keyboard input focus directly to the ca
 # Ball movement + collision
 # -------------------------------
 def move_ball():
-    global ball_dx, ball_dy
+    global ball_dx, ball_dy, score
 
     canvas.move(ball, ball_dx, ball_dy)
     x1, y1, x2, y2 = canvas.coords(ball)
@@ -120,6 +123,8 @@ def move_ball():
     if hit_brick:
         canvas.delete(hit_brick)
         bricks.remove(hit_brick)
+        score += 10
+        canvas.itemconfig(score_text, text=f"Score: {score}")
         ball_dy = -ball_dy  # bounce after hitting brick
 
         # Win condition
