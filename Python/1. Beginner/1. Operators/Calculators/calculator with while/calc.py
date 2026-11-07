@@ -1,3 +1,4 @@
+print("Selamat datang di kalkulator sederhana!")
 print("Ketik 'a' untuk tambah, 'b' untuk kurang, 'c' untuk kali, 'd' untuk bagi")
 
 while True:  # Initiate a continuous loop
