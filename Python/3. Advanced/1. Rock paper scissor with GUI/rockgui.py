@@ -46,7 +46,7 @@ scissors_button = tk.Button(window, text="Scissors", command=lambda: play("sciss
 scissors_button.pack(pady=5)
 
 # Labels to display the computer's choice and the result
-computer_choice_label = tk.Label(window, text="")
+computer_choice_label = tk.Label(window, text="blabla")
 computer_choice_label.pack(pady=10)
 
 result_label = tk.Label(window, text="")
