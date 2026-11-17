@@ -1,5 +1,8 @@
 import random #library
 
+print("WELCOME TO THE MATH QUIZ!")
+print("You will be asked 5 addition questions. Try to answer them correctly!")
+
 score = 0
 
 for _ in range(5):

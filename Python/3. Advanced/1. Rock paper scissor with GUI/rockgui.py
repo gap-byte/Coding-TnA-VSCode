@@ -53,4 +53,4 @@ result_label = tk.Label(window, text="")
 result_label.pack(pady=10)
 
 # Start the main loop
-window.mainloop()
+#window.mainloop()
